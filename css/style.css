@@ -2,33 +2,29 @@
    1. RESET E DEFINIÇÕES GERAIS (ESTILOS BÁSICOS)
    ============================================================ */
 
-/* Faz com que bordas e padding sejam incluídos no tamanho total de todos os elementos */
 * {
     box-sizing: border-box;
 }
 
-/* Definição da classe da fonte principal */
 .pixelify-sans-regular {
     font-family: "Pixelify Sans", sans-serif;
     font-weight: 400;
     font-style: normal;
-    /* Ajustando o tamanho da fonte para algo mais equilibrado (1.1rem ou ~17.6px) */
     font-size: 1.1rem;
-    line-height: 1.4; /* Melhora a legibilidade */
+    line-height: 1.4;
 }
 
 body {
-    /* Cor de fundo principal */
     background-color: #6c845e;
     margin: 0px;
-    padding: 0; /* Remove padding do body para usar o Flexbox de tela cheia */
+    padding: 0; 
     
-    /* SEGREDOS PARA NÃO ROLAR A PÁGINA (Layout de Tela Cheia): */
-    height: 100vh;           /* Define a altura do body como 100% da altura da janela visível (Viewport Height) */
-    display: flex;          /* Faz do body um container Flex */
-    justify-content: center; /* Centraliza o site horizontalmente */
-    align-items: center;    /* Centraliza o site verticalmente */
-    overflow: hidden;       /* Impede que o corpo role se o conteúdo transbordar */
+    /* Previne rolagem na página inteira */
+    height: 100vh;           
+    display: flex;          
+    justify-content: center; 
+    align-items: center;    
+    overflow: hidden;       
 }
 
 /* ============================================================
@@ -36,40 +32,33 @@ body {
    ============================================================ */
 
 .site-wrapper {
-    /* Define o tamanho fixo do site para não quebrar a proporção */
-    width: 95%;              /* Ocupa 95% da largura, com pequenas margens */
-    max-width: 1200px;      /* Largura máxima do seu modelo */
-    height: 95vh;           /* Ocupa 95% da altura da janela para ter margens top/bottom */
-    
-    /* Configuração Flex para o wrapper (coluna: header em cima, conteúdo embaixo) */
+    width: 95%;              
+    max-width: 1200px;      
+    height: 95vh;           
     display: flex;
     flex-direction: column;
-    gap: 15px;              /* Espaço vertical entre o header e as colunas */
+    gap: 15px;              
 }
 
 /* ============================================================
-   3. HEADER (CABECALHO)
+   3. HEADER (CABEÇALHO)
    ============================================================ */
 
 header {
-    height: 80px;           /* Altura menor que o original, para caber mais coisas */
-    border: 3px solid black; /* Grossura e cor da borda do header */
-    border-radius: 15px;     /* Borda arredondada */
-    
-    /* Centralização do título */
+    height: 80px;           
+    border: 3px solid black; 
+    border-radius: 15px;     
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #1d352a; /* Verde escuro do header */
-    
-    /* Remove padding para o título ficar no meio */
+    background-color: #1d352a; 
     padding: 0; 
 }
 
 header h1 {
     margin: 0;
-    color: white;           /* Texto branco no fundo escuro */
-    font-size: 2rem;        /* Tamanho do título */
+    color: white;           
+    font-size: 2rem;        
 }
 
 /* ============================================================
@@ -77,32 +66,27 @@ header h1 {
    ============================================================ */
 
 .content-columns {
-    display: flex;          /* Coloca as colunas lado a lado */
-    flex-direction: row;    /* Direção horizontal */
-    gap: 15px;              /* Espaço entre as colunas */
-    flex-grow: 1;           /* Faz as colunas ocuparem todo o espaço restante em altura */
+    display: flex;          
+    flex-direction: row;    
+    gap: 15px;              
+    flex-grow: 1;           
+    height: calc(100% - 95px); /* Garante que o container não estoure a tela */
 }
 
 /* ============================================================
    5. SIDEBARS (ESQUERDA E DIREITA)
    ============================================================ */
 
-/* Estilos gerais para todas as sidebars */
 .sidebar {
     border: 2px solid black;
-    border-radius: 15px;     /* Borda arredondada */
+    border-radius: 15px;     
     padding: 15px;
-    background-color: #678465; /* Verde do sidebar */
-    
-    /* Define o tamanho de largura das sidebars (pensei em porcentagens menores) */
-    width: 20%;             /* Proporção menor para as sidebars */
-    min-width: 150px;      /* Impede que fiquem muito pequenas */
-    
-    /* Faz o conteúdo da sidebar transbordar (rolar interno) se for muito longo */
+    background-color: #678465; 
+    width: 20%;             
+    min-width: 170px;      
     overflow-y: auto;       
 }
 
-/* Estilo específico para títulos dentro de sidebar */
 .sidebar h2 {
     font-size: 1.4rem;
     margin-top: 0;
@@ -110,7 +94,6 @@ header h1 {
     text-decoration: underline;
 }
 
-/* Remove estilos de lista padrão na navegação */
 .sidebar ul {
     list-style-type: none;
     padding: 0;
@@ -118,7 +101,7 @@ header h1 {
 }
 
 .sidebar li {
-    padding: 5px 0;
+    padding: 6px 0;
 }
 
 /* ============================================================
@@ -127,38 +110,53 @@ header h1 {
 
 .main-content {
     border: 2px solid black;
-    border-radius: 15px;     /* Borda arredondada */
-    padding: 15px;
-    background-color: #678465; /* Verde do conteúdo principal */
-    
-    /* Ocupa o restante do espaço horizontalmente */
+    border-radius: 15px;     
+    padding: 20px;
+    background-color: #678465; 
     flex-grow: 1;
-    
-    /* Transbordamento vertical para o conteúdo central */
     overflow-y: auto;
+
+    /* REGRA DE OURO: Transforma o main em um organizador vertical */
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Controla a distância exata ENTRE cada bloco interno */
 }
 
-.main-content h2 {
-    font-size: 1.8rem;
-    margin-top: 0;
+/* --- ESTILIZAÇÃO DOS BLOCOS INTERNOS (CAIXAS) --- */
+
+/* Caixa de Boas-vindas */
+.welcome-block {
+    border: 2px solid black;
+    background-color: #859c78; 
+    border-radius: 15px;     
+    padding: 10px;
     text-align: center;
 }
 
-/* Exemplo de estilos para os blocos internos */
-.bio-block, .post-block {
-    margin-bottom: 5px;
-    padding: 10px;
-    border: 1px solid black;
-    background-color: #859c78; /* Cor de exemplo para visualização */
-    border-radius: 15px;     /* Borda arredondada */
+.welcome-block h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 400;
 }
 
-.bio-content p, .post-content p {
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid black;
-    background-color: #859c78; /* Cor de exemplo para visualização */
-    border-radius: 15px;     /* Borda arredondada */
-    text-align: center; /* Centraliza o texto para melhor estética */
+/* Pequenas etiquetas de títulos como "bio" e "posts" */
+.bio-title-block, .posts-title-block {
+    border: 2px solid black;
+    background-color: #859c78; 
+    border-radius: 10px;     
+    padding: 5px 15px;
+    width: fit-content; /* Faz a caixinha ter apenas o tamanho do texto */
 }
 
+/* Caixa com o texto da Bio */
+.bio-content-block {
+    border: 2px solid black;
+    background-color: #859c78; 
+    border-radius: 15px;     
+    padding: 20px;
+}
+
+.bio-content-block p {
+    margin: 0;
+    text-align: left; /* Alinhado à esquerda como no seu rascunho */
+}
