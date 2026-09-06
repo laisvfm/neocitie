@@ -160,3 +160,73 @@ header h1 {
     margin: 0;
     text-align: left; /* Alinhado à esquerda como no seu rascunho */
 }
+/* ============================================================
+   7. RESPONSIVE LAYOUT
+   ============================================================ */
+
+@media (max-width: 768px) {
+    body {
+        height: auto;
+        min-height: 100vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+        align-items: flex-start;
+    }
+
+    .site-wrapper {
+        width: 95%;
+        height: auto;
+        min-height: 100vh;
+        padding: 15px 0;
+    }
+
+    header {
+        height: 70px;
+        flex-shrink: 0;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .content-columns {
+        flex-direction: column;
+        height: auto;
+        flex-grow: 0;
+        gap: 15px;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-width: 0;
+        overflow-y: visible;
+    }
+
+    .main-content {
+        width: 100%;
+        min-width: 0;
+        overflow-y: visible;
+        padding: 15px;
+    }
+}
+
+/* Extra-small mobile devices */
+@media (max-width: 480px) {
+    .site-wrapper {
+        width: 92%;
+    }
+
+    header h1 {
+        font-size: 1.25rem;
+    }
+
+    .sidebar,
+    .main-content {
+        padding: 12px;
+    }
+
+    .welcome-block h3 {
+        font-size: 1.1rem;
+    }
+}
