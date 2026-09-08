@@ -14,6 +14,58 @@
     border: 2px solid black; /* Add a black border to the left sidebar with a 2px width */
     border-radius: 10px;
     padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Add some space between the different sections in the left sidebar */
+}
+
+.sidebar-left ul {
+    list-style-type: none; /* Remove bullet points from the list */
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Add some space between the list items */
+}
+
+.sidebar-left a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  display: inline-block;
+  transition: transform 0.2s ease, color 0.2s ease; /* Add a smooth transition effect for the transform and color properties */
+}
+
+.sidebar-left a:hover {
+    color: #344b31;
+    text-decoration: underline; /* Add underline on hover */
+    transform: scale(1.05); /* Slightly enlarge the link on hover */
+}
+
+.nav-group,
+.socials,
+.inspo-neocities {
+    border: 2px solid black; /* Add a black border to the sections with a 2px width */
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Add some space between the title and the list */
+}
+
+.section-title {
+    border: 2px solid black; /* Add a black border to the section titles with a 2px width */
+    border-radius: 10px;
+    padding: 8px; 
+}
+
+.section-title p {
+    font-weight: bold; 
+    text-transform: uppercase; 
+    text-align: center;
+}
+
+.socials ul {
+    display: flex;
+    flex-direction: row;
+    gap: 15px; /* Add some space between the icons */
 }
 
 .sidebar-right {
