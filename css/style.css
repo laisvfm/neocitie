@@ -1,162 +1,70 @@
-/* ============================================================
-   1. RESET E DEFINIÇÕES GERAIS (ESTILOS BÁSICOS)
-   ============================================================ */
-
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-.pixelify-sans-regular {
-    font-family: "Pixelify Sans", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 1.1rem;
-    line-height: 1.4;
+.container {
+    display:flex;
+    gap: 2px; /* Add some space between the left sidebar, content, and right sidebar */
+}
+
+.sidebar-left {
+    width: 250px;
+    border: 2px solid black; /* Add a black border to the left sidebar with a 2px width */
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.sidebar-right {
+    width: 250px;
+    border: 2px solid black; /* Add a black border to the right sidebar with a 2px width */
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.content {
+    flex: 1; /* Flexible width so it moves with the window size */
+    border: 2px solid black; /* Add a black border to the content area with a 2px width */
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Add some space between the welcome box and bio box */
+}
+
+.welcome-box {
+    border: 2px solid black; /* Add a black border to the welcome box with a 2px width */
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.bio-box {
+    border: 2px solid black; /* Add a black border to the bio box with a 2px width */
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.bio-content {
+    border: 2px solid black; /* Add a black border to the welcome box with a 2px width */
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.page-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2px; /* Add some space between the header and the main content */
+}
+
+header {
+    border: 2px solid black; /* Add a black border to the header with a 2px width */
+    border-radius: 10px;
+    padding: 15px;
 }
 
 body {
-    background-color: #6c845e;
-    margin: 0px;
-    padding: 0; 
-    
-    /* Previne rolagem na página inteira */
-    height: 100vh;           
-    display: flex;          
-    justify-content: center; 
-    align-items: center;    
-    overflow: hidden;       
-}
-
-/* ============================================================
-   2. SITE-WRAPPER (O CONTAINER PRINCIPAL DO SITE)
-   ============================================================ */
-
-.site-wrapper {
-    width: 95%;              
-    max-width: 1200px;      
-    height: 95vh;           
-    display: flex;
-    flex-direction: column;
-    gap: 15px;              
-}
-
-/* ============================================================
-   3. HEADER (CABEÇALHO)
-   ============================================================ */
-
-header {
-    height: 80px;           
-    border: 3px solid black; 
-    border-radius: 15px;     
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #1d352a; 
-    padding: 0; 
-}
-
-header h1 {
-    margin: 0;
-    color: white;           
-    font-size: 2rem;        
-}
-
-/* ============================================================
-   4. CONTENT-COLUMNS (O CONTAINER DAS TRÊS COLUNAS)
-   ============================================================ */
-
-.content-columns {
-    display: flex;          
-    flex-direction: row;    
-    gap: 15px;              
-    flex-grow: 1;           
-    height: calc(100% - 95px); /* Garante que o container não estoure a tela */
-}
-
-/* ============================================================
-   5. SIDEBARS (ESQUERDA E DIREITA)
-   ============================================================ */
-
-.sidebar {
-    border: 2px solid black;
-    border-radius: 15px;     
-    padding: 15px;
-    background-color: #678465; 
-    width: 20%;             
-    min-width: 170px;      
-    overflow-y: auto;       
-}
-
-.sidebar h2 {
-    font-size: 1.4rem;
-    margin-top: 0;
-    text-align: center;
-    text-decoration: underline;
-}
-
-.sidebar ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-.sidebar li {
-    padding: 6px 0;
-}
-
-/* ============================================================
-   6. MAIN-CONTENT (CONTEÚDO PRINCIPAL CENTRAL)
-   ============================================================ */
-
-.main-content {
-    border: 2px solid black;
-    border-radius: 15px;     
-    padding: 20px;
-    background-color: #678465; 
-    flex-grow: 1;
-    overflow-y: auto;
-
-    /* REGRA DE OURO: Transforma o main em um organizador vertical */
-    display: flex;
-    flex-direction: column;
-    gap: 15px; /* Controla a distância exata ENTRE cada bloco interno */
-}
-
-/* --- ESTILIZAÇÃO DOS BLOCOS INTERNOS (CAIXAS) --- */
-
-/* Caixa de Boas-vindas */
-.welcome-block {
-    border: 2px solid black;
-    background-color: #859c78; 
-    border-radius: 15px;     
-    padding: 10px;
-    text-align: center;
-}
-
-.welcome-block h3 {
-    margin: 0;
-    font-size: 1.3rem;
-    font-weight: 400;
-}
-
-/* Pequenas etiquetas de títulos como "bio" e "posts" */
-.bio-title-block, .posts-title-block {
-    border: 2px solid black;
-    background-color: #859c78; 
-    border-radius: 10px;     
-    padding: 5px 15px;
-    width: fit-content; /* Faz a caixinha ter apenas o tamanho do texto */
-}
-
-/* Caixa com o texto da Bio */
-.bio-content-block {
-    border: 2px solid black;
-    background-color: #859c78; 
-    border-radius: 15px;     
-    padding: 20px;
-}
-
-.bio-content-block p {
-    margin: 0;
-    text-align: left; /* Alinhado à esquerda como no seu rascunho */
+    background-color: #678465; /* Set the background color to a shade of green */
 }
